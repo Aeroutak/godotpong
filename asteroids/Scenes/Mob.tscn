@@ -1,10 +1,53 @@
-[gd_scene format=2]
+[gd_scene load_steps=10 format=2]
 
-[node name="Mob" type="Area2D"]
+[ext_resource path="res://GFX/Sprites/enemyFlyingAlt_1.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Mob.gd" type="Script" id=2]
+[ext_resource path="res://GFX/Sprites/enemyFlyingAlt_2.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Sprites/enemyWalking_2.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Sprites/enemySwimming_1.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Sprites/enemyWalking_1.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Sprites/enemySwimming_2.png" type="Texture" id=7]
+
+[sub_resource type="CapsuleShape2D" id=1]
+radius = 35.8401
+height = 27.5736
+
+[sub_resource type="SpriteFrames" id=2]
+animations = [ {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "fly",
+"speed": 3.0
+}, {
+"frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
+"loop": true,
+"name": "swim",
+"speed": 4.0
+}, {
+"frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
+"loop": true,
+"name": "walk",
+"speed": 4.0
+} ]
+
+[node name="Mob" type="RigidBody2D"]
+collision_mask = 0
+gravity_scale = 0.0
+script = ExtResource( 2 )
 __meta__ = {
 "_edit_group_": true
 }
-
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+min_speed = 150
+max_speed = 250
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource( 1 )
+
+[node name="Visiblity" type="VisibilityEnabler2D" parent="."]
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+scale = Vector2( 0.75, 0.75 )
+frames = SubResource( 2 )
+animation = "walk"
+[connection signal="screen_exited" from="Visiblity" to="." method="_on_Visiblity_screen_exited"]
