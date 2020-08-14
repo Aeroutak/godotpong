@@ -2,12 +2,12 @@
 
 importer="wav"
 type="AudioStreamSample"
-path="res://.import/gameover.wav-2b49ebc186653e298893f84a2b1f6748.sample"
+path="res://.import/gameover.wav-7b573eea0e0de0efc69c96d0c10a0410.sample"
 
 [deps]
 
-source_file="res://GFX/Sprites/gameover.wav"
-dest_files=[ "res://.import/gameover.wav-2b49ebc186653e298893f84a2b1f6748.sample" ]
+source_file="res://Sound/gameover.wav"
+dest_files=[ "res://.import/gameover.wav-7b573eea0e0de0efc69c96d0c10a0410.sample" ]
 
 [params]
 
