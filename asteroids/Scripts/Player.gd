@@ -1,4 +1,5 @@
 extends Area2D
+signal collide
 
 export var base_speed = 600
 var screen_size
@@ -6,6 +7,7 @@ var screen_size
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	screen_size = get_viewport_rect().size
+	hide()
 
 
 func _process(delta):
@@ -40,3 +42,14 @@ func _process(delta):
 	position.y = clamp(position.y, 0, screen_size.y)
 		
 	
+
+
+func _on_Player_body_entered(body):
+	hide()
+	emit_signal("collide")
+	$CollisionShape2D.set_deferred("disabled", true)
+
+func start(pos):
+	position = pos
+	show()
+	$CollisionShape2D.disabled = false
