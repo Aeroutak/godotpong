@@ -50,3 +50,7 @@ func start(pos):
 	position = pos
 	show()
 	$CollisionShape2D.disabled = false
+
+
+func _on_HUD_start_game():
+	pass # Replace with function body.
