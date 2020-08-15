@@ -14,15 +14,15 @@ height = 27.5736
 
 [sub_resource type="SpriteFrames" id=2]
 animations = [ {
-"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
-"loop": true,
-"name": "fly",
-"speed": 3.0
-}, {
 "frames": [ ExtResource( 5 ), ExtResource( 7 ) ],
 "loop": true,
 "name": "swim",
 "speed": 4.0
+}, {
+"frames": [ ExtResource( 1 ), ExtResource( 3 ) ],
+"loop": true,
+"name": "fly",
+"speed": 3.0
 }, {
 "frames": [ ExtResource( 6 ), ExtResource( 4 ) ],
 "loop": true,
